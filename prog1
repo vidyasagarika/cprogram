@@ -1,0 +1,11 @@
+//write a program which reads fahrenheit temp and print centigrate temp
+#include<stdio.h>
+int main()
+{
+float ot,it;
+printf("enter the fahrenheit temperature value");
+scanf("%f",&it);
+ot=5/9*(it-32);
+printf("%f",ot);
+return(0);
+}
