@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+int d,m,s;
+float r;
+printf("enter the angle in radians\n");
+scanf("%f",&r);
+r=(r*180)/3.14;
+d=r;
+r=(r-d)*60;
+m=r;
+s=(r-m)*60;
+printf("%d%d%d\n",d,m,s);
+return(0);
+}
