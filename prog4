@@ -1,0 +1,12 @@
+//quadratic equation
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+float a,b,c,dis;
+printf("enter the a,b,c values");
+scanf("%f%f%f",&a,&b,&c);
+dia=sqrt(b*b-4*a*c);
+printf("%f",dis);
+return(0);
+}
