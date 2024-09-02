@@ -1,0 +1,14 @@
+//reads principal amount rate  and time calculate the simple interest
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+float p,t,r,si,ci;
+printf("e"nter the principal amount ,time,rate\n);
+scanf("%f%f%f",&p,&t,&r);
+si=(p*t*r)/100;
+ci=p*pow((1+r/100),t)-p;
+diff=ci-si;
+printf("compund interest=%f\nsimple interest=%f\ndifference=%f\n",ci,si,diff);
+return(0);
+}
