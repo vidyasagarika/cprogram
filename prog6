@@ -1,0 +1,14 @@
+#prog1
+f = ["apple", "bana", "cherry","pine"]
+for x in f:
+    print(x)
+    if x == "cherry":
+        break
+
+        #prog2
+      f = ["apple", "bana", "cherry"]
+for x in f:
+    if x == "bana":
+        continue
+    print(x)
+  
