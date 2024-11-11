@@ -1,0 +1,16 @@
+string1="sagarika"
+string2="singing"
+last3_char1=list(string1[-3:])
+last3_char2=list(string2[-3:])
+combined_chars=last3_char1+last3_char2
+print(combined_chars)
+#output=['i','k','a','i','n','g']
+#type2 using byte code to take ASCII values
+string1="sagarika"
+string2="singing"
+last3_char1=list(string1[-3:])
+last3_char2=list(string2[-3:])
+combined_chars=last3_char1+last3_char2
+newarray=bytearray(map(ord,combines_chars))
+print(newarray)
+#output-the ascii values for ['i','k','a','i','n','g'] are [105,107,97,110,110,103]
