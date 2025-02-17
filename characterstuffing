@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+void characterStuffing(const char *original, char *stuffed, char start, char end, char escape) {
+    int i, j = 0;  // Declare loop variables before the loop
+    for (i = 0; original[i] != '\0'; i++) {
+        if (original[i] == start || original[i] == end || original[i] == escape) {
+            stuffed[j++] = escape;
+        }
+        stuffed[j++] = original[i];
+    }
+    stuffed[j] = '\0';
+}
+
+void characterDestuffing(const char *stuffed, char *original, char escape) {
+    int i, j = 0;  // Declare loop variables before the loop
+    for (i = 0; stuffed[i] != '\0'; i++) {
+        if (stuffed[i] == escape) {
+            i++;  // Skip the escape character
+        }
+        original[j++] = stuffed[i];
+    }
+    original[j] = '\0';
+}
+
+int main() {
+    char original[100], stuffed[200], destuffed[100];  // Increased size for stuffed data
+    char startChar = 's', endChar = 'a', escapeChar = '@';
+
+    printf("Enter original data: ");
+    scanf("%s", original);
+
+    characterStuffing(original, stuffed, startChar, endChar, escapeChar);
+    printf("Stuffed Data: %s\n", stuffed);
+
+    characterDestuffing(stuffed, destuffed, escapeChar);
+    printf("Destuffed Data: %s\n", destuffed);
+
+    return 0;
+}
