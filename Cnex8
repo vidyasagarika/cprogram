@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    int i, j, packet[30], wait_time;
+    int fsize = (rand() % 16) + 1; // Random frame size (1 to 16)
+
+    printf("\n\tFrame size: %d\n", fsize);
+    printf("\n\t------ DATA LOG ------\n");
+    printf("\n FRAME\t DATA\t WAITING\t ACKNOWLEDGEMENT\t RESEND");
+
+    for (i = 0; i < fsize; i++) {
+        packet[i] = rand() % 1000; // Generate random packet data
+        printf("\n %d\t %d", i + 1, packet[i]);
+
+        j = 0; // Retry counter
+        wait_time = 0;
+
+        while (rand() % 2 == 0) { // Simulating transmission failure randomly
+            wait_time++; // Count retry attempts
+            printf("\t %d", wait_time);
+            sleep(1); // Simulate 1 second wait time per retry
+
+            if (wait_time >= 3) { // If max retries reached, resend
+                printf("\t NO \t RESENDING \n %d\t %d", i + 1, packet[i]);
+                wait_time = 0; // Reset for retransmission
+            }
+        }
+
+        sleep(1);
+        printf("\t YES \t No"); // Acknowledgment received
+    }
+
+    printf("\n\n ----- ALL DATA PACKETS SENT -----\n");
+    return 0;
+}
